@@ -74,6 +74,7 @@ Resources:
                   - codebuild:*
                   - iam:*
                   - s3:*
+                  - kms:*
                 Effect: Allow
                 Resource:
                   - '*'
