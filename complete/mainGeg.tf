@@ -31,7 +31,7 @@ resource "aws_kms_key" "replica" {
 }
 
 module "log_bucket" {
-  source = "git@github.com:terraform-aws-modules/terraform-aws-s3-bucket"
+  source = "git::https://git@github.com:terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v1.15.0"
 
   bucket                         = "logs-gogreen"
   acl                            = "log-delivery-write"
@@ -39,7 +39,7 @@ module "log_bucket" {
   attach_elb_log_delivery_policy = true
 }
 module "replica_bucket" {
-  source = "git@github.com:terraform-aws-modules/terraform-aws-s3-bucket"
+  source = "git::https://git@github.com:terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v1.15.0"
 
   providers = {
     aws = aws.replica
@@ -54,7 +54,7 @@ module "replica_bucket" {
 }
 
 module "s3_bucket" {
-  source = "git@github.com:terraform-aws-modules/terraform-aws-s3-bucket"
+  source = "git::https://git@github.com:terraform-aws-modules/terraform-aws-s3-bucket.git?ref=v1.15.0"
 
   bucket = local.bucket_name
   acl    = "private"
